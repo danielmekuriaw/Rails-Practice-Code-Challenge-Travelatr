@@ -1,0 +1,18 @@
+<h3> Name: <%= @blogger.name%> </h3>
+<p> Bio: <%= @blogger.bio%> </p>
+<p> Age: <%= @blogger.age%> </p>
+
+<p> Total Likes: <%= @blogger.total_likes%> </p>
+<% if @blogger.most_liked_post %>
+<p> Featured Post: <%= link_to @blogger.most_liked_post.title, post_path(@blogger.most_liked_post)%> </p>
+<% end%>
+
+<p> Top Destinations </p>
+<% if @blogger.top_5_destinations %>
+    <ul>
+        <% @blogger.top_5_destinations.each do |destination|%>
+            <li> <%= link_to destination.name, destination_path(destination)%> </li>
+        <% end%>
+    </ul>
+<%end%>
+

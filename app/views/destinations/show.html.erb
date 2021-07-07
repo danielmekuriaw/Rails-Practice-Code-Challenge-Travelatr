@@ -1,0 +1,14 @@
+<h2> Destination: <%= @destination.name %> </h2>
+<p> Country: <%= @destination.country %> </p>
+
+<p> Most Recent 5 Posts Written About This Destination </p>
+<ol>
+<% @destination.most_recent_posts.each do |recent_post|%>
+    <li> <%= recent_post.title%> </li>
+<% end %>
+</ol>
+<% if @destination.most_liked_post%>
+<p> Featured Post: <%= link_to @destination.most_liked_post.title, post_path(@destination.most_liked_post)%>
+<% end %>
+<p> Average age of unique bloggers who have written about this destination: <%= @destination.average_age_of_bloggers%>
+
